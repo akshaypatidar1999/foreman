@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.1
+
+The banner hook ignores idle prompts. Claude Code raises a Notification
+about a minute after any turn the manager has not replied to, so a session
+left to read produced a banner per turn and buried the permission prompts
+that matter. Only permission prompts and foreman's own pushes ring now.
+
 ## 0.3.0
 
 Leaner lifecycle. Architect and implementer run on Opus. A plan is `small`
