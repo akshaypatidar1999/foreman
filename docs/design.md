@@ -6,7 +6,7 @@
 
 ## 1. Purpose
 
-Ship the agent team as a Claude Code plugin named `foreman`, hosted in the public GitHub repo `surajgour-d11/foreman`, which is also its own marketplace. Anyone installs with two commands.
+Ship the agent team as a Claude Code plugin named `foreman`, hosted in the public GitHub repo `surajgour1496/foreman`, which is also its own marketplace. Anyone installs with two commands.
 
 ## 2. Decisions
 
@@ -62,7 +62,7 @@ foreman/
 - **Agents.** The plugin's agent files are the source of truth; the migrated originals are kept only in the migration backup. Against those originals: the reviewer and architect descriptions say "Does not edit code." instead of "Read-only." (their Bash is unrestricted), and their pair-protocol sentence names the findings file as the one file they may write; the implementer no longer preloads `ponytail:ponytail` and carries the smallest-change rule in its own prompt. Body references to role names become `foreman:architect`, `foreman:reviewer`, and so on where a role is named as a dispatch target.
 - **Standing orders** (`orders.md`). Same text as the current `~/.claude/CLAUDE.md` with six edits: roles and pairs are named `foreman:<role>` wherever they are dispatch targets, "live in `~/.claude/agents`" becomes "ship with the foreman plugin", and the hook line "the SessionStart hook prints it" stays true.
 - **session-start.sh.** Gains a third job: read `orders.md` from `${CLAUDE_PLUGIN_ROOT}` and include it in `additionalContext` ahead of any ledger notice. Honours `CLAUDE_PLUGIN_OPTION_KEEP_AWAKE`. Runs on `startup|clear|compact` so orders survive compaction, matching superpowers.
-- **notify.sh.** Exits quietly when `osascript` is absent, and drops `idle_prompt` events: Claude Code raises one about a minute into any wait for the manager, so passing them through banners every turn and drowns the permission prompts.
+- **notify.sh.** Exits quietly when `osascript` is absent, and drops `idle_prompt` events: Claude Code raises one about a minute into any wait for the manager, so passing them through banners every turn and drowns the permission prompts. The banner title is `Claude Code — <dir>`, the basename of the payload's `cwd`, so a manager running a session per repo can tell which window is asking.
 - **pre-compact.sh.** New. Runs on every compaction, manual or automatic, and prints instructions for the summary: keep the open run's ledger path and phase, the plan and spec paths, the branch and worktrees, pending escalations, the tier, and the last `Spend:` line; drop the intake conversation and quoted plan, spec, or review text. Silent when no team run is open.
 - **hooks.json.** All three hooks reference scripts via `"${CLAUDE_PLUGIN_ROOT}"/scripts/...`.
 
@@ -77,7 +77,7 @@ Idempotent. Run once after install, again any time to re-check.
 ## 6. Install and update
 
 ```
-claude plugin marketplace add surajgour-d11/foreman
+claude plugin marketplace add surajgour1496/foreman
 claude plugin install foreman@foreman
 /foreman:setup
 ```
@@ -86,7 +86,7 @@ Private repo access uses the team member's existing `gh auth login` or SSH key. 
 
 ```json
 {
-  "extraKnownMarketplaces": { "foreman": { "source": { "source": "github", "repo": "surajgour-d11/foreman" } } },
+  "extraKnownMarketplaces": { "foreman": { "source": { "source": "github", "repo": "surajgour1496/foreman" } } },
   "enabledPlugins": { "foreman@foreman": true }
 }
 ```

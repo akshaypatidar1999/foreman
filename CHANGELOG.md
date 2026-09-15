@@ -1,6 +1,15 @@
 # Changelog
 
-## Unreleased
+## 0.3.2
+
+The banner names the repo it came from: the title is now `Claude Code — <dir>`,
+taken from the hook payload's `cwd`. One session per repo is the normal way to
+run foreman, and a bare "Claude Code" banner gave no clue which window wanted
+you.
+
+The repository URLs name the renamed GitHub account, `surajgour1496`. Every
+link had been relying on GitHub's redirect from the old `surajgour-d11`, which
+broke `gh` when it resolved the two names as separate repositories.
 
 Contribution guidelines for the repo going public: `CONTRIBUTING.md`,
 `CODE_OF_CONDUCT.md` (Contributor Covenant 2.1), `SECURITY.md` with a scope

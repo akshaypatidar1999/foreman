@@ -81,7 +81,8 @@ names. The lead reads the summary, not a transcript.
   back up when you type `resume` — reading the ledger and git, not its memory
   of the conversation.
 - **Desktop notifications.** A macOS banner when Claude Code needs a
-  permission decision or the lead needs you. Idle nags are suppressed.
+  permission decision or the lead needs you, titled with the repo it came from.
+  Idle nags are suppressed.
 - **No idle sleep.** Your Mac stays awake for the life of the session, so
   unattended work is not cut in half by the lid closing.
 
@@ -95,7 +96,7 @@ feature.
 ## Install
 
 ```
-claude plugin marketplace add surajgour-d11/foreman
+claude plugin marketplace add surajgour1496/foreman
 claude plugin install foreman@foreman
 ```
 
@@ -127,7 +128,7 @@ To enable foreman for everyone who opens a repo, add to its `.claude/settings.js
 
 ```json
 {
-  "extraKnownMarketplaces": { "foreman": { "source": { "source": "github", "repo": "surajgour-d11/foreman" } } },
+  "extraKnownMarketplaces": { "foreman": { "source": { "source": "github", "repo": "surajgour1496/foreman" } } },
   "enabledPlugins": { "foreman@foreman": true }
 }
 ```
